@@ -1,0 +1,36 @@
+# sigs.k8s.io/descheduler presubmits
+presubmits:
+  kubernetes-sigs/descheduler:
+  - name: pull-descheduler-verify-gofmt
+    decorate: true
+    path_alias: sigs.k8s.io/descheduler
+    always_run: true
+    spec:
+      containers:
+      - image: golang:1.13
+        command:
+        - make
+        args:
+        - verify-gofmt
+  - name: pull-descheduler-verify-build
+    decorate: true
+    path_alias: sigs.k8s.io/descheduler
+    always_run: true
+    spec:
+      containers:
+      - image: golang:1.13
+        command:
+        - make
+        args:
+        - build
+  - name: pull-descheduler-unit-test
+    decorate: true
+    path_alias: sigs.k8s.io/descheduler
+    always_run: true
+    spec:
+      containers:
+      - image: golang:1.13
+        command:
+        - make
+        args:
+        - test-unit
